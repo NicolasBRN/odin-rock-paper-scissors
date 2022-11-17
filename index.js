@@ -15,24 +15,24 @@ function playRound (playerSelection, computerSelection) {
     // rock beats scissors, scissors beats paper, paper beats rock
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore++;
-        console.log ("You win, rock beats scissors");
+        alert ("You win, rock beats scissors");
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++;
-        console.log ("You win, scissors beats paper");
+        alert ("You win, scissors beats paper");
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
-        console.log ("You win, paper beats rock");
+        alert ("You win, paper beats rock");
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
         machineScore++;
-        console.log ("You lose, rock beats scissors");
+        alert ("You lose, rock beats scissors");
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         machineScore++;
-        console.log ("You lose, scissors beats paper");
+        alert ("You lose, scissors beats paper");
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         machineScore++;
-        console.log ("You lose, paper beats rock");
+        alert ("You lose, paper beats rock");
     } else {
-        console.log ("Its a Tie!");
+        alert ("Its a Tie!");
     }
 }
 
@@ -50,11 +50,11 @@ function game () {
 
     // at the end of 5 rounds, report a winner or loser
     if (playerScore > machineScore) {
-        console.log("You win the game!! NICE")
+        alert("You win the game!! NICE")
     } else if (machineScore > playerScore) {
-        console.log("You lose the game, sorry")
+        alert("You lose the game, sorry")
     } else {
-        console.log("The game was a TIE.")
+        alert("The game was a TIE.")
     }
 }
 
