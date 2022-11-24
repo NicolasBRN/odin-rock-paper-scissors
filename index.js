@@ -15,24 +15,31 @@ function playRound (playerSelection, computerSelection) {
     // rock beats scissors, scissors beats paper, paper beats rock
     if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore++;
-        console.log ("You win, rock beats scissors");
+        results.textContent = ("You win, rock beats scissors");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++;
-        console.log ("You win, scissors beats paper");
+        results.textContent = ("You win, scissors beats paper");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
-        console.log ("You win, paper beats rock");
+        results.textContent = ("You win, paper beats rock");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     } else if (computerSelection === "rock" && playerSelection === "scissors") {
         machineScore++;
-        console.log ("You lose, rock beats scissors");
+        results.textContent = ("You lose, rock beats scissors");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         machineScore++;
-        console.log ("You lose, scissors beats paper");
+        results.textContent = ("You lose, scissors beats paper");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         machineScore++;
-        console.log ("You lose, paper beats rock");
+        results.textContent = ("You lose, paper beats rock");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     } else {
-        console.log ("Its a Tie!");
+        results.textContent = ("Its a Tie!");
+        scores.textContent = "Jugador: " + playerScore + " " + "Maquina: " + machineScore;
     }
 }
 
@@ -40,22 +47,25 @@ function playRound (playerSelection, computerSelection) {
 let playerScore = 0;
 let machineScore = 0;
 
-// create a function called game, that plays 5 rounds of the game
-function game () {
-
-    // call playRound function inside
-    for (i = 0; i < 5; i++) {
-        playRound(prompt("Rock, Paper or Scissors?: "), getComputerChoice())
-    }
-
-    // at the end of 5 rounds, report a winner or loser
-    if (playerScore > machineScore) {
-        console.log("You win the game!! NICE")
-    } else if (machineScore > playerScore) {
-        console.log("You lose the game, sorry")
-    } else {
-        console.log("The game was a TIE.")
+function winnerOfTheGame () {
+    if (playerScore === 5 || machineScore === 5) {
+        if (playerScore > machineScore) {
+            results.textContent = "Player is the WINNER";
+        } else if (playerScore < machineScore) {
+            results.textContent = "You are the LOSSER";
+        } else {
+            results.textContent = "This game was a TIE";
+        }
     }
 }
 
-game();
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.textContent, getComputerChoice());
+        winnerOfTheGame();
+    })
+})
+
+const results = document.querySelector('#results');
+const scores = document.querySelector('#scores');
