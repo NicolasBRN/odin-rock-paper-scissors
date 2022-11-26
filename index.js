@@ -20,7 +20,7 @@ function playRound (playerSelection, computerSelection) {
         playerScore++;
         results.textContent = (`You Win! ${playerSelection} beats ${computerSelection}`);
         scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
-        document.getElementById(`${playerSelection}`).classList.add('winner-card')
+        document.getElementById(`${playerSelection}`).classList.toggle('winner-card')
         }
     else if 
        (computerSelection === "rock" && playerSelection === "scissors" ||
@@ -30,6 +30,8 @@ function playRound (playerSelection, computerSelection) {
         machineScore++;
         results.textContent = (`You Lost.. ${computerSelection} beats ${playerSelection}`)
         scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
+        document.getElementById(`${playerSelection}`).classList.toggle('loser-card')
+
         } 
     else {
         results.textContent = ("Its a Tie!");
@@ -40,6 +42,10 @@ function playRound (playerSelection, computerSelection) {
 // add a variable that keeps score across the rounds
 let playerScore = 0;
 let machineScore = 0;
+
+if (playerScore > 5) {
+    playerScore = 5
+}
 
 function winnerOfTheGame () {
     if (playerScore === 5 || machineScore === 5) {
@@ -53,13 +59,22 @@ function winnerOfTheGame () {
     }
 }
 
-const buttons = document.querySelectorAll('a');
-buttons.forEach((a) => {
-    a.addEventListener('click', () => {
-        playRound(a.id, getComputerChoice());
+const cards = document.querySelectorAll('img');
+cards.forEach((img) => {
+    img.addEventListener('click', () => {
+        deleteCardAnimation();
+        playRound(img.id, getComputerChoice());
         winnerOfTheGame();
     })
 })
+
+function deleteCardAnimation () {
+    cards.forEach ((img) => {
+            img.classList.remove('winner-card');
+            img.classList.remove('loser-card');
+    
+    })
+}
 
 const results = document.querySelector('#results');
 const scores = document.querySelector('#scores');

@@ -28,7 +28,7 @@ h3 {
     flex-direction: row;
     justify-content: center;
     gap: 10px;
-    transition: 0.7s;
+    transition: 1s ease-in-out;
 }
 
 .enemy-card {
@@ -36,7 +36,14 @@ h3 {
 }
 
 .winner-card {
-    border: solid greenyellow 6px;
-    transition: 0.7s;
+    box-shadow: 0 0 30px rgb(3, 246, 3);
+    transition: 1s ease-in-out;
     transform: scale(1.05);
+}
+
+.loser-card {
+    box-shadow: 0 0 30px rgb(255, 0, 0);
+    transition: 1s ease-in-out;
+    transform: scale(0.95);
+
 }
