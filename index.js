@@ -17,22 +17,32 @@ function playRound (playerSelection, computerSelection) {
         playerSelection === "scissors" && computerSelection === "paper" ||
         playerSelection === "paper" && computerSelection === "rock") {
         
+        if (machineScore === 5) {
+            return;
+        }
         playerScore++;
+        limitScores ()
         results.textContent = (`You Win! ${playerSelection} beats ${computerSelection}`);
         scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
         document.getElementById(`${playerSelection}`).classList.toggle('winner-card')
         }
+
     else if 
        (computerSelection === "rock" && playerSelection === "scissors" ||
         computerSelection === "scissors" && playerSelection === "paper" ||
         computerSelection === "paper" && playerSelection === "rock") {
 
+        if (playerScore === 5) {
+            return;
+        }
         machineScore++;
+        limitScores ()
         results.textContent = (`You Lost.. ${computerSelection} beats ${playerSelection}`)
         scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
         document.getElementById(`${playerSelection}`).classList.toggle('loser-card')
 
         } 
+
     else {
         results.textContent = ("Its a Tie!");
         scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
@@ -42,10 +52,6 @@ function playRound (playerSelection, computerSelection) {
 // add a variable that keeps score across the rounds
 let playerScore = 0;
 let machineScore = 0;
-
-if (playerScore > 5) {
-    playerScore = 5
-}
 
 function winnerOfTheGame () {
     if (playerScore === 5 || machineScore === 5) {
@@ -59,7 +65,16 @@ function winnerOfTheGame () {
     }
 }
 
-const cards = document.querySelectorAll('img');
+function limitScores () {
+    if (playerScore >= 5) {
+        playerScore = 5;
+    }
+    if (machineScore >= 5) {
+        machineScore = 5;
+    }
+}
+
+const cards = document.querySelectorAll('.player-cards');
 cards.forEach((img) => {
     img.addEventListener('click', () => {
         deleteCardAnimation();
@@ -75,6 +90,15 @@ function deleteCardAnimation () {
     
     })
 }
+
+const retry = document.getElementById('retry');
+retry.addEventListener('click', () => {
+    playerScore = 0;
+    machineScore = 0;
+    scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
+    results.textContent = "";
+    deleteCardAnimation();
+})
 
 const results = document.querySelector('#results');
 const scores = document.querySelector('#scores');

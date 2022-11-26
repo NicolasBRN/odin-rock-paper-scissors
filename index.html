@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
-      <script src="index.js" defer></script>
       <meta charset="utf-8">
+      <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
       <link rel="stylesheet" href="style.css">
+      <script src="index.js" defer></script>
    </head>
 
    <body>
+      <div class="top">
+         <img id="retry" src="img/retry.png" alt="retry button" width="70px" height="70px">
+         <h2>Medieval Duel</h2>
+         <img src="img/retry.png" alt="retry button" width="70px" height="70px">
+      </div>
 
-      <h2>Medieval Duel</h2>
-
-      <h3>Instructions: Sword beats Magic,<br> Magic beats Shield, Shield beats Sword.</h3>
+      <h3 class="sub-title">Instructions: Sword beats <span style="color: rgb(181, 72, 181);">
+         Magic</span>,<br> <span style="color: rgb(181, 72, 181);">
+            Magic</span> beats Shield, Shield beats Sword.</h3>
 
       <div class="main-text">
          <div id ="results"></div>
@@ -20,13 +25,15 @@
       </div>
 
       <div class="cards">
-         <img id="rock" src="img/shield.png" alt="shield card" width="250px">
-         <img id="paper" src="img/shield.png" alt="shield card" width="250px">
-         <img id="scissors" src="img/shield.png" alt="shield card" width="250px">
+         <img class="player-cards" id="rock" src="img/shield.png" alt="shield card" width="200px">
+         <img class="player-cards" id="paper" src="img/shield.png" alt="shield card" width="200px">
+         <img class="player-cards" id="scissors" src="img/shield.png" alt="shield card" width="200px">
       </div>
 
+      <h3 class="rival">Rival: </h3>
+
       <div class="enemy-card">
-         <img src="img/shield.png" alt="enemy card" width="250px">
+         <img src="img/shield.png" alt="enemy card" width="200px">
       </div>
 
    </body>

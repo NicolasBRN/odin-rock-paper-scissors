@@ -3,15 +3,24 @@ body {
     background-color: antiquewhite;
 }
 
+.top {
+    display: flex;
+    justify-content: space-around;
+}
+
 h2 {
     text-align: center;
     font-size: 30px;
 }
 
-h3 {
+.sub-title {
+    margin: 0px;
+}
+
+.sub-title ,
+.rival {
     text-align: center;
     font-size: 20px;
-    margin-bottom: 30px;
 }
 
 .main-text {
@@ -26,24 +35,26 @@ h3 {
 .enemy-card {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    transition: 1s ease-in-out;
+    gap: 20px;
+    transition: 0.5s ease-in-out;
 }
 
-.enemy-card {
-    margin-top: 20px;
+.rival {
+    margin-bottom: 10px;
 }
 
 .winner-card {
     box-shadow: 0 0 30px rgb(3, 246, 3);
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
     transform: scale(1.05);
 }
 
 .loser-card {
     box-shadow: 0 0 30px rgb(255, 0, 0);
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
     transform: scale(0.95);
 
 }
+
