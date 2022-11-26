@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
       <script src="index.js" defer></script>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="style.css">
    </head>
 
    <body>
-      <button id="0">rock</button>
-      <button id="1">paper</button>
-      <button id="2">scissors</button>
 
-      <div id ="results"></div>
-      <div id="scores"></div>
+      <h2>Medieval Duel</h2>
+
+      <h3>Instructions: Sword beats Magic,<br> Magic beats Shield, Shield beats Sword.</h3>
+
+      <div class="main-text">
+         <div id ="results"></div>
+         
+         <div id="scores"></div>
+      </div>
+
+      <div class="cards">
+         <a id="rock" ><img src="img/shield.png" alt="shield card" width="250px"></a>
+         <a id="paper"><img src="img/shield.png" alt="shield card" width="250px"></a>
+         <a id="scissors"><img src="img/shield.png" alt="shield card" width="250px"></a>
+      </div>
+
+      <div class="enemy-card">
+         <img src="img/shield.png" alt="enemy card" width="250px">
+      </div>
+
    </body>
 </html>

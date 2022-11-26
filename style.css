@@ -1,0 +1,42 @@
+body {
+    font-family: 'MedievalSharp';
+    background-color: antiquewhite;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.main-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:40px;
+}
+
+.cards ,
+.enemy-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.7s;
+}
+
+.enemy-card {
+    margin-top: 20px;
+}
+
+.winner-card {
+    border: solid greenyellow 6px;
+    transition: 0.7s;
+    transform: scale(1.05);
+}

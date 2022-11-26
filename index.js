@@ -20,6 +20,7 @@ function playRound (playerSelection, computerSelection) {
         playerScore++;
         results.textContent = (`You Win! ${playerSelection} beats ${computerSelection}`);
         scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
+        document.getElementById(`${playerSelection}`).classList.add('winner-card')
         }
     else if 
        (computerSelection === "rock" && playerSelection === "scissors" ||
@@ -52,10 +53,10 @@ function winnerOfTheGame () {
     }
 }
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        playRound(button.textContent, getComputerChoice());
+const buttons = document.querySelectorAll('a');
+buttons.forEach((a) => {
+    a.addEventListener('click', () => {
+        playRound(a.id, getComputerChoice());
         winnerOfTheGame();
     })
 })
