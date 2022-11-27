@@ -21,10 +21,10 @@ function playRound (playerSelection, computerSelection) {
             return;
         }
         playerScore++;
-        limitScores ()
-        results.textContent = (`You Win! ${playerSelection} beats ${computerSelection}`);
-        scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
+        limitScores ();
+        scores.textContent = `You: ${playerScore} Rival: ${machineScore}`;
         document.getElementById(`${playerSelection}`).classList.toggle('winner-card')
+        document.getElementById('rival').src = `img/${computerSelection}.png`;
         }
 
     else if 
@@ -37,15 +37,14 @@ function playRound (playerSelection, computerSelection) {
         }
         machineScore++;
         limitScores ()
-        results.textContent = (`You Lost.. ${computerSelection} beats ${playerSelection}`)
-        scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
-        document.getElementById(`${playerSelection}`).classList.toggle('loser-card')
-
+        scores.textContent = `You: ${playerScore} Rival: ${machineScore}`;
+        document.getElementById(`${playerSelection}`).classList.toggle('loser-card');
+        document.getElementById('rival').src = `img/${computerSelection}.png`;
         } 
 
     else {
-        results.textContent = ("Its a Tie!");
-        scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
+        scores.textContent = `You: ${playerScore} Rival: ${machineScore}`;
+        document.getElementById('rival').src = `img/${computerSelection}.png`;
     }
 }
 
@@ -56,11 +55,14 @@ let machineScore = 0;
 function winnerOfTheGame () {
     if (playerScore === 5 || machineScore === 5) {
         if (playerScore > machineScore) {
-            results.textContent = "Player is the WINNER";
+            scores.textContent = "";
+            results.textContent = "YOU WIN";
         } else if (playerScore < machineScore) {
-            results.textContent = "You are the LOSSER";
+            scores.textContent = "";
+            results.textContent = "You LOST";
         } else {
-            results.textContent = "This game was a TIE";
+            scores.textContent = "";
+            results.textContent = "TIE";
         }
     }
 }
@@ -87,7 +89,6 @@ function deleteCardAnimation () {
     cards.forEach ((img) => {
             img.classList.remove('winner-card');
             img.classList.remove('loser-card');
-    
     })
 }
 
@@ -95,9 +96,10 @@ const retry = document.getElementById('retry');
 retry.addEventListener('click', () => {
     playerScore = 0;
     machineScore = 0;
-    scores.textContent = `Jugador: ${playerScore} Maquina: ${machineScore}`;
+    scores.textContent = `You: ${playerScore} Rival: ${machineScore}`;
     results.textContent = "";
     deleteCardAnimation();
+    document.getElementById('rival').src = `img/back.png`;
 })
 
 const results = document.querySelector('#results');
